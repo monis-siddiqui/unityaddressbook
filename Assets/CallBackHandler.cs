@@ -5,6 +5,7 @@ using UnityEngine;
 public class CallBackHandler : MonoBehaviour {
 
 	public GameObject SuccessPopup;
+	public static GameObject SuccessPopup2;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,4 +20,7 @@ public class CallBackHandler : MonoBehaviour {
 		Debug.Log("OnCallFromSwift is called with message: "  + message);
 		SuccessPopup.SetActive (true);
 	}
+
+
+		
 }

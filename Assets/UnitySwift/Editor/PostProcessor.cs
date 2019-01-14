@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using UnityEditor.Callbacks;
+#if UNITY_IOS
 using UnityEditor.iOS.Xcode;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,6 +14,7 @@ namespace UnitySwift {
     public static class PostProcessor {
         [PostProcessBuild]
         public static void OnPostProcessBuild(BuildTarget buildTarget, string buildPath) {
+			#if UNITY_IOS
             if(buildTarget == BuildTarget.iOS) {
                 // So PBXProject.GetPBXProjectPath returns wrong path, we need to construct path by ourselves instead
                 // var projPath = PBXProject.GetPBXProjectPath(buildPath);
@@ -29,6 +32,7 @@ namespace UnitySwift {
 
                 proj.WriteToFile(projPath);
             }
+			#endif
         }
     }
 }

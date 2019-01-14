@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TestUIController : MonoBehaviour {
 
+	public PluginTest pluginTest;
 	public InputField firstName;
 	public InputField lastName;
 	public InputField company;
@@ -28,7 +29,7 @@ public class TestUIController : MonoBehaviour {
 
 	private void saveContact(string firstName,string lastName,string company,string number)
 	{
-		PluginTest.addContact (firstName,lastName,company,number);
+		pluginTest.addContact (firstName,lastName,company,number);
 	}
 
 	public void refreshUI()
